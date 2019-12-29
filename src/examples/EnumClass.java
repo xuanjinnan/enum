@@ -12,5 +12,10 @@ public class EnumClass {
 			System.out.println(s.getClass());
 			System.out.println("==================");
 		}
+		
+		for(String s : "HANGING CRAWLING GROUND".split(" ")) {
+			Shrubbery shrubbery = Enum.valueOf(Shrubbery.class, s);
+			System.out.println(shrubbery);
+		}
 	}
 }
