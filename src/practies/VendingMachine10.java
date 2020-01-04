@@ -162,6 +162,7 @@ public class VendingMachine10 {
 		System.out.println("banked = " + banked);
 	}
 	public static void main(String[] args) {
+		args = new String[] {"E:\\学习\\thinkInJava_at_git\\enum\\src\\practies\\VendingMachine.txt"};
 		Generator<Input> gen = new RandomInputGenerator();
 		if(args.length ==1)
 			gen = new FileInputGenerator10(args[0]);
@@ -180,13 +181,25 @@ public class VendingMachine10 {
 		vm10a.showBanked();
 		System.out.println();
 		System.out.println("Testing VendingMachine 10b: ");
-		gen = new FileInputGenerator10("VendingMachine10bInput.txt");
+		gen = new FileInputGenerator10("E:\\学习\\thinkInJava_at_git\\enum\\src\\practies\\VendingMachine.txt");
 		while(vm10b.state != State.TERMINAL) {
 			Input in = gen.next();
 			vm10b.em.get(vm10b.state).next(in);
 			while(vm10b.isTransient) {
-				
+				vm10b.em.get(vm10b.state).next();
 			}
+			vm10b.showAmount();
+		}
+		System.out.println();
+		System.out.println("Testing VendingMachine 10c:");
+		gen = new FileInputGenerator10("E:\\学习\\thinkInJava_at_git\\enum\\src\\practies\\VendingMachine.txt");
+		while(vm10c.state != State.TERMINAL) {
+			Input in = gen.next();
+			vm10c.em.get(vm10c.state).next(in);
+			while(vm10c.isTransient) {
+				vm10c.em.get(vm10c.state).next();
+			}
+			vm10c.showAmount();
 		}
 	}
 }

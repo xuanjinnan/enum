@@ -24,7 +24,8 @@ enum Category{
 		return categories.get(input);
 	}
 }
-public class VendingMachine {
+public enum VendingMachine {
+	;
 	private static State state = State.RESTING;
 	private static int amount = 0;
 	private static Input selection = null;
